@@ -37,9 +37,9 @@ int main(void) {
         int s = sum2s[i].first + sum2s[j].first;
         if (s == x) {
             int iend  = i+1;
-            while (sum2s[iend].first == sum2s[i].first) ++iend;
+            while (iend < (int)sum2s.size() && sum2s[iend].first == sum2s[i].first) ++iend;
             int jrend = j-1;
-            while (sum2s[jrend].first == sum2s[j].first) --jrend;
+            while (0 <= jrend && sum2s[jrend].first == sum2s[j].first) --jrend;
 
             for (int i2=i; i2!=iend; ++i2) for (int j2=j; j2!=jrend; --j2) {
                 if (are_indexes_unique(sum2s[i2].second, sum2s[j2].second)) {
